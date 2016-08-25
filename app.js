@@ -5,10 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect( 'mongodb://localhost/react-starter' );
+mongoose.connect( 'mongodb://localhost/kick_bucket' );
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var buckets = require('./routes/buckets');
+var lists = require('./routes/lists');
+var items = require('./routes/items');
 
 var app = express();
 
@@ -35,6 +38,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/buckets', buckets);
+app.use('/lists', lists);
+app.use('/items', items);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
