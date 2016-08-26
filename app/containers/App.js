@@ -1,8 +1,9 @@
 import React from 'react';
+import Buckets from '../components/buckets/Buckets';
 
 const App = () => (
   <div>
-    <Home />
+    <Buckets />
   </div>
 );
 

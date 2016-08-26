@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
 	new List({
-		time: req.body.time
+		time: req.body.time,
 		bucketId: req.body.bucketId
 	}).save(function(err, list) {
 		res.json(list);

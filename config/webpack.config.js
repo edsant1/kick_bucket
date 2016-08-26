@@ -5,14 +5,15 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, '../app/index.js')
-  ],
+  entry: {
+    app: './app/index.js',
+    bucket: './app/buckets.js'
+  },
   output: {
-    path: __dirname + '/static/',
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname + '/public/'),
+    filename: '[name.js]',
+    chunkFilename: "[id].chunk.js",
+    publicPath: '/public/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
